@@ -1,29 +1,18 @@
-// Simulated API call function
 function getResponseFromAPI() {
-    // Return a new Promise
     return new Promise((resolve, reject) => {
-      // Simulate an asynchronous operation using setTimeout
+      // Simulating asynchronous operation
       setTimeout(() => {
-        // Example condition to either resolve or reject
-        const success = true; // Change this to false to test rejection
+        const success = true; // Change to false to test rejection
   
         if (success) {
-          // If operation is successful, resolve the promise with data
           resolve('API response data');
         } else {
-          // If operation fails, reject the promise with an error
           reject(new Error('API request failed'));
         }
-      }, 1000); // Simulate a 1-second delay
+      }, 1000); // 1-second delay to simulate API call
     });
   }
   
-  // Usage
-  getResponseFromAPI()
-    .then(response => {
-      console.log('Success:', response);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+  // Export the function as the default export
+  export default getResponseFromAPI;
   
