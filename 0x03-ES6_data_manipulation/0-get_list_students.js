@@ -3,7 +3,7 @@ function getListStudents() {
     {
       id: 1,
       firstName: 'Guillaume',
-      location: 'San Francisco',
+      location: 'San Francisco'
     },
     {
       id: 2,
@@ -15,9 +15,11 @@ function getListStudents() {
       firstName: 'Serena',
       location: 'San Francisco',
     },
-
   ];
+
   return students;
 }
+
 const studentsList = getListStudents();
+
 console.log(studentsList);
