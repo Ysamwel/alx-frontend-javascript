@@ -2,19 +2,21 @@ export default function updateStudentGradeByCity(list, city, newGrade) {
   return list
     .filter((obj) => obj.location === city)
     .map((student) => {
-      //   console.log(newGrade);
-      newGrade.map((studentGrade) => {
-        if (studentGrade.studentId === student.id) {
-        // eslint-disable-next-line no-param-reassign
-          student.grade = studentGrade.grade;
-        }
+    // Create a copy of the student object
+      const updatedStudent = { ...student };
 
-        if (!student.hasOwnProperty('grade')) {
-          student.grade = 'N/A';
+      // Update the grade if found in newGrade
+      newGrade.forEach((studentGrade) => {
+        if (studentGrade.studentId === student.id) {
+          updatedStudent.grade = studentGrade.grade;
         }
-        return student;
       });
 
-      return student;
+      // If the grade is not found, set it to 'N/A'
+      if (!Object.prototype.hasOwnProperty.call(updatedStudent, 'grade')) {
+        updatedStudent.grade = 'N/A';
+      }
+
+      return updatedStudent;
     });
 }
